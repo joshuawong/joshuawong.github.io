@@ -13,7 +13,7 @@ ThreadThread class is de">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Implement multi-threadsIn Java, there are two methods to implement multi-threads, the first one is to inherit Thread class, the second one is the implement Runnable interface.
 ThreadThread class is de">
-<meta property="og:updated_time" content="2016-10-03T00:21:21.000Z">
+<meta property="og:updated_time" content="2016-10-04T17:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Runnable And Thread">
 <meta name="twitter:description" content="Implement multi-threadsIn Java, there are two methods to implement multi-threads, the first one is to inherit Thread class, the second one is the implement Runnable interface.
@@ -57,7 +57,7 @@ ThreadThread class is de">
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -90,19 +90,25 @@ ThreadThread class is de">
       
         <h2 id="Implement-multi-threads"><a href="#Implement-multi-threads" class="headerlink" title="Implement multi-threads"></a>Implement multi-threads</h2><p>In Java, there are two methods to implement multi-threads, the first one is to inherit <strong><em>Thread</em></strong> class, the second one is the implement <strong><em>Runnable</em></strong> interface.</p>
 <h2 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h2><p><strong><em>Thread</em></strong> class is defined in <strong><em>java.lang</em></strong>. A class can implement multi-thread by inheriting <strong><em>Thread</em></strong> class and overriding <strong><em>run()</em></strong> function. But the limitation of this method is that one class can only inherit from one parent class.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// MyThread class</div><div class="line">class MyThread extends Thread&#123;</div><div class="line">  private String name;</div><div class="line">  public MyThread(String name)&#123;</div><div class="line">    super();</div><div class="line">    this.name = name;</div><div class="line">  &#125;</div><div class="line">  public void run()&#123;</div><div class="line">    for(int i = 0; i &lt; 10; i++)&#123;</div><div class="line">      System.out.println(&quot;Thread start: &quot; + this.name + &quot;, i =&quot; + i);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Multi-thread example</div><div class="line">public class ThreadDemo&#123;</div><div class="line">  public static void main(String[] main)&#123;</div><div class="line">    MyThread thread1 = new MyThread(&quot;Thread A&quot;);</div><div class="line">    MyThread thread2 = new MyThread(&quot;Thread B&quot;);</div><div class="line">    thread1.start();</div><div class="line">    thread2.start();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MyThread class</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</div><div class="line">  <span class="keyword">private</span> String name;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">MyThread</span><span class="params">(String name)</span></span>&#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">      System.out.println(<span class="string">"Thread start: "</span> + <span class="keyword">this</span>.name + <span class="string">", i ="</span> + i);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Multi-thread example</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadDemo</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] main)</span></span>&#123;</div><div class="line">    MyThread thread1 = <span class="keyword">new</span> MyThread(<span class="string">"Thread A"</span>);</div><div class="line">    MyThread thread2 = <span class="keyword">new</span> MyThread(<span class="string">"Thread B"</span>);</div><div class="line">    thread1.start();</div><div class="line">    thread2.start();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Runnable"><a href="#Runnable" class="headerlink" title="Runnable"></a>Runnable</h2><p>In real world, we seldom use <strong><em>Thread</em></strong> class. Usually we use <strong><em>Runnable</em></strong> interface to implement multi-thread.</p>
 <p>Advantages of implementing <strong><em>Runnable</em></strong> interface:</p>
-<pre><code>1. avoid the limitation of single inhertiation, one class can implement multiple interfaces;
-2. suitable for share resource.
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// Runnable interface</div><div class="line">public interface Runnable&#123;</div><div class="line">  public void run();</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Example: rewrite MyThread class</div><div class="line">class MyThread implements Runnable&#123;</div><div class="line">  private String name;</div><div class="line">  public MyThread(String name)&#123;</div><div class="line">    this.name = name;</div><div class="line">  &#125;</div><div class="line">  public void run()&#123;</div><div class="line">    for(int i = 0; i &lt; 10; i++)&#123;</div><div class="line">      System.out.println(&quot;Thread start: &quot; + this.name + &quot;, i =&quot; + i);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>However, in <strong><em>Runnable</em></strong>, there is no <strong><em>start()</em></strong> function. Now, we can use a construtor method: <figure class="highlight plain"><figcaption><span>Thread(Runnable target)``` to instant ***Runnable*** subclass. Which means we can implement ***Runnable*** multi-thread by using ***Thread*** class.</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>import org.runnable.demo.MyThread;<br>public class ThreadDemo {<br>　　public static void main(String[] args) {<br>　　    MyThread thread1=new MyThread(“thread A”);<br>　　    MyThread thread2=new MyThread(“thread B”);<br>　　    new Thread(thread1).start();<br>　　    new Thread(thread2).start();<br>　　}<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Lastly, ***Thread*** class is subclass of ***Runnable*** interface. </div><div class="line"></div><div class="line">```public class Thread extends Object implements Runnable</div></pre></td></tr></table></figure></p>
+<ol>
+<li>avoid the limitation of single inhertiation, one class can implement multiple interfaces;</li>
+<li>suitable for share resource.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Runnable interface</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Example: rewrite MyThread class</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</div><div class="line">  <span class="keyword">private</span> String name;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">MyThread</span><span class="params">(String name)</span></span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">      System.out.println(<span class="string">"Thread start: "</span> + <span class="keyword">this</span>.name + <span class="string">", i ="</span> + i);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>However, in <strong><em>Runnable</em></strong>, there is no <strong><em>start()</em></strong> function. Now, we can use a construtor method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">(Runnable target)</span></span></div></pre></td></tr></table></figure>
+<p>to instant <strong><em>Runnable</em></strong> subclass. Which means we can implement <strong><em>Runnable</em></strong> multi-thread by using <strong><em>Thread</em></strong> class.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.runnable.demo.MyThread;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadDemo</span> </span>&#123;</div><div class="line">　　<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">　　	MyThread thread1=<span class="keyword">new</span> MyThread(<span class="string">"thread A"</span>);</div><div class="line">　　	MyThread thread2=<span class="keyword">new</span> MyThread(<span class="string">"thread B"</span>);</div><div class="line">　　	<span class="keyword">new</span> Thread(thread1).start();</div><div class="line">　　	<span class="keyword">new</span> Thread(thread2).start();</div><div class="line">　　&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Lastly, <strong><em>Thread</em></strong> class is subclass of <strong><em>Runnable</em></strong> interface. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Thread</span> <span class="keyword">extends</span> <span class="title">Object</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/02/Runnable-And-Thread/" data-id="cittb74ya00016phr3ssks58k" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/10/02/Runnable-And-Thread/" data-id="citvq1hau0000zigm47lokor1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -113,9 +119,18 @@ ThreadThread class is de">
     
 <nav id="article-nav">
   
+    <a href="/2016/10/04/Java-Question/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Java-Question
+        
+      </div>
+    </a>
+  
   
     <a href="/2016/10/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Jiahao&#39;s Blog</div>
     </a>
   
@@ -133,7 +148,7 @@ ThreadThread class is de">
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
@@ -152,7 +167,7 @@ ThreadThread class is de">
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
     </div>
@@ -162,9 +177,13 @@ ThreadThread class is de">
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/10/04/Java-Question/">Java-Question</a>
+          </li>
         
           <li>
             <a href="/2016/10/02/Runnable-And-Thread/">Runnable And Thread</a>
