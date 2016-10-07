@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   
@@ -15,7 +15,7 @@
 <meta property="og:description" content="(1) 面向对象的特征有哪些方面？ 
    a. abstract: include data abstract and behavior abstract. Abstract only cares about object has what kinds of attributes and function, does not concern about details.
    b. encaps">
-<meta property="og:updated_time" content="2016-10-05T19:23:53.000Z">
+<meta property="og:updated_time" content="2016-10-07T19:17:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java-Question-Question">
 <meta name="twitter:description" content="(1) 面向对象的特征有哪些方面？ 
@@ -25,57 +25,34 @@
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/favicon.ico">
   
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-
+  <link rel="stylesheet" href="/css/typing.css">
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-Java-Question" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/04/Java-Question/" class="article-date">
-  <time datetime="2016-10-04T13:55:54.000Z" itemprop="datePublished">2016-10-04</time>
-</a>
+  
+    <body>
+  
+      <div id="container" class="container">
+        <article id="post-Java-Question" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+  <nav id="main-nav" class="main-nav">
     
-  </div>
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+    
+  </nav>
+</header>
+
+  <hr/>
   <div class="article-inner">
     
     
@@ -89,19 +66,19 @@
 
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+    <div class="article-entry typo" itemprop="articleBody">
       
         <p>(1) <strong>面向对象的特征有哪些方面？</strong> </p>
 <p>   a. abstract: include data abstract and behavior abstract. Abstract only cares about object has what kinds of attributes and function, does not concern about details.</p>
 <p>   b. encapsulate: hide everything can be hided from outer object, and provide simple API and function for outer object.</p>
 <p>   c. inherit: extends from existing class. Subclass &amp; superclass. Extends from existing class, subclass can reuse functions and data in superclass as well as add its own new functions, but subclass cannot take away any fields or function of superclass. Subclass cannot access private variable in superclass.</p>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* assume Employee class has a private attribute called salary; Manager extends from Employee, and has a attribute called bonus. There is a function called getSalary().*/</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getSalary</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> bonus + salary; <span class="comment">// this won't work.</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* assume Employee class has a private attribute called salary; Manager extends from Employee, and has a attribute called bonus. There is a function called getSalary().*/</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getSalary</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> bonus + salary; <span class="comment">// this won't work.</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>   keyword: <strong><em>super</em></strong>.</p>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// here is the correct version</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getSalary</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> bonus + <span class="keyword">super</span>.salary; <span class="comment">// this won't work.</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// here is the correct version</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getSalary</span><span class="params">()</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> bonus + <span class="keyword">super</span>.salary; <span class="comment">// this won't work.</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>   Another usage of <strong><em>super</em></strong> is construction.</p>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Manager</span><span class="params">(String name, <span class="keyword">double</span> salary, <span class="keyword">int</span> year, <span class="keyword">int</span> bonus)</span></span>&#123;</div><div class="line">  <span class="keyword">super</span>(name, salary, year);</div><div class="line">  bonus = <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Manager</span><span class="params">(String name, <span class="keyword">double</span> salary, <span class="keyword">int</span> year, <span class="keyword">int</span> bonus)</span></span>&#123;</div><div class="line">  <span class="keyword">super</span>(name, salary, year);</div><div class="line">  bonus = <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>   Subclass can be assigned to super class.</p>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// example 1</span></div><div class="line">Employee someone = <span class="keyword">new</span> Manager(name, salary, year, bonus);</div><div class="line"><span class="comment">// example 2</span></div><div class="line">Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// example 1</span></div><div class="line">Employee someone = <span class="keyword">new</span> Manager(name, salary, year, bonus);</div><div class="line"><span class="comment">// example 2</span></div><div class="line">Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</div></pre></td></tr></table></figure>
 <p>   Keyword <strong><em>final</em></strong> can prevent override in inheritance. Function and field with <strong><em>final</em></strong> keyword cannot be overrided in subclass.</p>
 <p>   d. polymorphism: enable same function can have different parameter list. Two ways to implement polymorphism: override(at compile time) and overload(at run time). </p>
 <p>   ​</p>
@@ -158,9 +135,9 @@
 <p>   ​</p>
 <p>(7) <strong>int和Integer有什么区别？</strong></p>
 <p>   <strong>int</strong> is primitive type, <strong>Integer</strong> is a class, so it is reference type. AutoBoxing(since Java 5).</p>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutoUnboxingTest</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Integer a = <span class="keyword">new</span> Integer(<span class="number">3</span>);</div><div class="line">        Integer b = <span class="number">3</span>;                  <span class="comment">// autoboxing 3 to Integer.</span></div><div class="line">        <span class="keyword">int</span> c = <span class="number">3</span>;</div><div class="line">        System.out.println(a == b);     <span class="comment">// false. two reference do not point to same object.</span></div><div class="line">        System.out.println(a == c);     <span class="comment">// true. a autoUnBoxing to int, then compare to c. </span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutoUnboxingTest</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Integer a = <span class="keyword">new</span> Integer(<span class="number">3</span>);</div><div class="line">        Integer b = <span class="number">3</span>;                  <span class="comment">// autoboxing 3 to Integer.</span></div><div class="line">        <span class="keyword">int</span> c = <span class="number">3</span>;</div><div class="line">        System.out.println(a == b);     <span class="comment">// false. two reference do not point to same object.</span></div><div class="line">        System.out.println(a == c);     <span class="comment">// true. a autoUnBoxing to int, then compare to c. </span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>   An example of autoboxing in interview:</p>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test03</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Integer f1 = <span class="number">100</span>, f2 = <span class="number">100</span>, f3 = <span class="number">150</span>, f4 = <span class="number">150</span>;</div><div class="line"></div><div class="line">        System.out.println(f1 == f2);  <span class="comment">// true</span></div><div class="line">        System.out.println(f3 == f4);  <span class="comment">// false</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test03</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Integer f1 = <span class="number">100</span>, f2 = <span class="number">100</span>, f3 = <span class="number">150</span>, f4 = <span class="number">150</span>;</div><div class="line"></div><div class="line">        System.out.println(f1 == f2);  <span class="comment">// true</span></div><div class="line">        System.out.println(f3 == f4);  <span class="comment">// false</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>   Here, the range of <strong>int</strong> is [-127, 128]. So if value of <strong>Integer</strong>in this range, java won’t auto boxing, instead, java will creat a <strong>int</strong> variable.  </p>
 <p>   ​</p>
 <p>(8) <strong>解释内存中的栈(stack)、堆(heap)和静态区(static area)的用法。</strong></p>
@@ -168,7 +145,7 @@
 <p>   heap: object created by <strong>new</strong> and constructor are stored in heap.</p>
 <p>   static area: value of variable are stored in static area.</p>
 <p>   Operations in stack are fast, but stack is small, so when using stack should avoid memory overflow. Usually, large objects are stored in heap.</p>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String str = <span class="keyword">new</span> String(<span class="string">"Hello world"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String str = <span class="keyword">new</span> String(<span class="string">"Hello world"</span>);</div></pre></td></tr></table></figure>
 <p>   In this example, <em>str</em> is stored in stack; <em>“Hello world”</em> is stored in static area; the object of String is stored in heap.</p>
 <p>   ​</p>
 <p>(9) <strong>Math.round(11.5) 等于多少？Math.round(-11.5)等于多少？</strong> </p>
@@ -199,10 +176,10 @@
 <p>(16) <strong>String和StringBuilder、StringBuffer的区别？</strong></p>
 <p>   The value of String cannot be modified directly. While, StringBuilder/StringBuffer’s value can modify directly. The difference between StringBuilder() and StringBuffer() is that StringBuilder() is used in single thread, it does’t contains <strong>synchronized</strong>, so its effectiveness is higher than StringBuffer(). This also means StringBuffer() is thread safety and StringBuilder isn’t.</p>
 <p>   Interview Question 1: 什么情况下用+运算符进行字符串连接比调用StringBuffer/StringBuilder对象的append方法连接字符串性能更好？</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String S1 = “This is only a” + “ simple” + “ test”;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String S1 = “This is only a” + “ simple” + “ test”;</div></pre></td></tr></table></figure>
 <p>   JVM will view S1 as “This is only a simple test”, so in this case, String is more effective than StringBuilder().</p>
 <p>   Interview Question 2: What is the output of this code?</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringEqualTest</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String s1 = <span class="string">"Programming"</span>;</div><div class="line">        String s2 = <span class="keyword">new</span> String(<span class="string">"Programming"</span>);</div><div class="line">        String s3 = <span class="string">"Program"</span> + <span class="string">"ming"</span>;</div><div class="line">        System.out.println(s1 == s2); 				<span class="comment">// false</span></div><div class="line">        System.out.println(s1 == s3);				<span class="comment">// true</span></div><div class="line">        System.out.println(s1 == s1.intern());		<span class="comment">// true</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringEqualTest</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String s1 = <span class="string">"Programming"</span>;</div><div class="line">        String s2 = <span class="keyword">new</span> String(<span class="string">"Programming"</span>);</div><div class="line">        String s3 = <span class="string">"Program"</span> + <span class="string">"ming"</span>;</div><div class="line">        System.out.println(s1 == s2); 				<span class="comment">// false</span></div><div class="line">        System.out.println(s1 == s3);				<span class="comment">// true</span></div><div class="line">        System.out.println(s1 == s1.intern());		<span class="comment">// true</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>(17) <strong>重载（Overload）和重写（Override）的区别。重载的方法能否根据返回类型进行区分？</strong></p>
 <p>   Overload is in the same class, one function can be written in serveral function with different parameter list. Override is in superclass and subclass, function in subclass rewrite the same function in superclass. (Here, override cannot claim more exception than its superclass)</p>
 <p>   ​</p>
@@ -238,123 +215,83 @@
 <p>   The output is 1a2b2b. The first line of main function return “1a2b”, and “1a” is static print. </p>
 <p>(30) <strong>数据类型之间的转换：</strong><br>     <strong>- 如何将字符串转换为基本数据类型？</strong><br>     <strong>- 如何将基本数据类型转换为字符串？</strong> </p>
 <p>   (1) In Integer/Long/Double/.. class, there are methods called parseXXX(String) or valurOf(String),, these methods can return primitive data type.</p>
-<p>   (2) The first method is use empty string(“”) and +; the second method is to invoke function  calueOf() in String class. </p>
+<p>   (2) The first method is use empty string(“”) and +; the second method is to invoke function  calueOf() in String class.<br>```</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/04/Java-Question/" data-id="citxa778m00014fhz2xkyufsc" class="article-share-link">Share</a>
-      
-      
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2016/10/04/Java-Question/" class="article-date">
+  <time datetime="2016-10-04T13:55:54.000Z" itemprop="datePublished">2016-10-04</time>
+</a>
+
+        </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
+
+          </li>
+        
+        <hr/>
+      </ul>
     </footer>
   </div>
   
     
-<nav id="article-nav">
+<nav id="article-nav" class="article-nav">
+  
+    <span id="article-nav-newer" class="article-nav-link-wrap newer"></span>
   
   
-    <a href="/2016/10/02/Runnable-And-Thread/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/10/02/Runnable-And-Thread/" id="article-nav-older" class="article-nav-link-wrap older">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Runnable And Thread</div>
     </a>
   
 </nav>
 
+
   
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Java/" style="font-size: 10px;">Java</a>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/10/04/Java-Question/">Java-Question-Question</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/02/Runnable-And-Thread/">Runnable And Thread</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/02/hello-world/">Jiahao&#39;s Blog</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+      
+    <footer id="footer" class="post-footer footer">
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Fusce eget urna vitae velit <em>eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque</em> penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Post</p>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+      </div>
+    </footer>
+
+      
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
 
-  </div>
-</body>
+
+
+
+
+
+
+    </div>
+  </body>
 </html>
