@@ -15,12 +15,14 @@
 <meta property="og:description" content="(1) 面向对象的特征有哪些方面？ 
    a. abstract: include data abstract and behavior abstract. Abstract only cares about object has what kinds of attributes and function, does not concern about details.
    b. encaps">
-<meta property="og:updated_time" content="2016-10-08T17:37:57.000Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20150408002007838">
+<meta property="og:updated_time" content="2016-10-09T23:28:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java-Question-Question">
 <meta name="twitter:description" content="(1) 面向对象的特征有哪些方面？ 
    a. abstract: include data abstract and behavior abstract. Abstract only cares about object has what kinds of attributes and function, does not concern about details.
    b. encaps">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150408002007838">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -47,7 +49,7 @@
   </nav>
   <nav id="sub-nav">
     
-      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
     
   </nav>
 </header>
@@ -237,7 +239,7 @@
 <p>finally: a block after try..catch, will be exceuted all the time.</p>
 <p>finalize: a object method. This method is used for destroying object by garbage collection.</p>
 <p>(36) <strong>类ExampleA继承Exception，类ExampleB继承ExampleA。</strong><br><strong>有如下代码片断：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> ExampleB(<span class="string">"b"</span>)</div><div class="line">&#125; <span class="keyword">catch</span>（ExampleA e）&#123;</div><div class="line">    System.out.println(<span class="string">"ExampleA"</span>);</div><div class="line">&#125; <span class="keyword">catch</span>（Exception e）&#123;</div><div class="line">    System.out.println(<span class="string">"Exception"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> ExampleB(<span class="string">"b"</span>)</div><div class="line">&#125; <span class="keyword">catch</span>（ExampleA e）&#123;</div><div class="line">    System.out.println(<span class="string">"ExampleA"</span>);</div><div class="line">&#125; <span class="keyword">catch</span>（Exception e）&#123;</div><div class="line">    System.out.println(<span class="string">"Exception"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>请问执行此段代码的输出是什么？</strong></p>
 <p>Output: ExampleA. The first catch block alreay catch this exception. The second catch block will not be excuted.</p>
 <p>(37) <strong>List、Set、Map是否继承自Collection接口？</strong> </p>
@@ -267,6 +269,34 @@
 <p>sleep(): switch a thread to sleeping status.</p>
 <p>notify(): wake up a thread in waiting status. But system cannot guarentee wake up which thread. It will noly randomly wake up a waiting thread.</p>
 <p>notifyAll(): wake up all waiting threads. Let these threads compete for resource.  </p>
+<p>(47) <strong>编写多线程程序有几种实现方式？</strong></p>
+<p>Two Methods. View details in <a href="http://www.jiahao556.com/2016/10/02/Runnable-And-Thread/" target="_blank" rel="external">Runnable and Thread</a></p>
+<p>(48) <strong>synchronized关键字的用法？</strong> </p>
+<p><strong>synchronized</strong> can mark objects or methods synchronized. Everytime invoke these methods or use these object should consider mutex or lock.</p>
+<p>(49) <strong>举例说明同步和异步。</strong></p>
+<p>Synchronize: system has some resources(resource number less than the number of resource require this resource), when B thread want to use these resources while A thread is already using them, these operations must be excuted in order, so we need synchronize to avoid dead lock or threads collision.</p>
+<p>Asynchronize: there are some operations require a long time to run, however the program do not want to wait for its return, then we need  asynchronize. So that we can use other threads to do these operations, and main thread keep going on.</p>
+<p>(50) <strong>启动一个线程是调用run()还是start()方法？</strong></p>
+<p>start().</p>
+<p>(51) <strong>什么是线程池（thread pool）？</strong> </p>
+<p>In OOP, create and destory object is expensive. So one method to reduce create and destroy times is using thread pool. </p>
+<p>Thread pool: put serveral excutable threads into a pool. When program need a thread, just call from the pool rather than create a new thread. After excuting, these threads are put back to the pool rather than destroy.</p>
+<p><strong>Executor</strong> interface defines a tool to execute threads. <strong>ExecutorService</strong> is its subclass. Here are some common thread pools.</p>
+<p><strong>newSingleThreadExecutor</strong>: create a single thread pool. If the only one thread die caused by exception, there will be a new thread to replace it so as to guarante all task in pool will be executed correctly.</p>
+<p><strong>newFixedThreadPool</strong>: create a fix size pool. It will arrange a thread for a task until reach its limitation. The size of thread pool cannot be changed once it was set.</p>
+<p><strong>newCachedThreadPool</strong>: create a cachable thread pool. if the size of pool larger than required number of tasks, pool will clean up some idle threads. As the increasment of tasks, the pool will add more threads to handle tasks.</p>
+<p>(52) <strong>线程的基本状态以及状态之间的关系？</strong> </p>
+<p><img src="http://img.blog.csdn.net/20150408002007838" alt=""></p>
+<p>(53) <strong>简述synchronized 和java.util.concurrent.locks.Lock的异同？</strong></p>
+<p>Lock can implement all functions of synchronized. The main difference is that synchronized can release lock automatically, while lock should release lock manually.</p>
+<p>(54) <strong>Java中如何实现序列化，有什么意义？</strong> </p>
+<p>Serializable is a mechanism to handle object stream. After streaming, object can be transfer between network. </p>
+<p>To implement serializable, object should implements <strong>Serializable</strong> interface.  Use <em>writeObject(Object)</em> to write object into stream, use <em>readObject()</em> to read object from stream.</p>
+<p>(55) <strong>Java中有几种类型的流？</strong></p>
+<p>Two. byte stream and char stream. Byte stream inherits from <em>InputStream</em>, <em>OutputStream</em>; Char stream inherits from <em>Reader</em>, <em>Writer</em>.</p>
+<p>(56) <strong>如何用Java代码列出一个目录下所有的文件？</strong> </p>
+<p><em>File</em> objects have a method <strong>listFiles()</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        File f = <span class="keyword">new</span> File(<span class="string">"/Users/Hao/Downloads"</span>);</div><div class="line">        <span class="keyword">for</span>(File temp : f.listFiles()) &#123;</div><div class="line">            <span class="keyword">if</span>(temp.isFile()) &#123;</div><div class="line">                System.out.println(temp.getName());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -282,7 +312,7 @@
         
         
           <li>
-            <span class="label">Tag:</span>
+            <span class="label">Mot-clé:</span>
             
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
@@ -298,7 +328,7 @@
 <nav id="article-nav" class="article-nav">
   
     <a href="/2016/10/08/Two-Sum/" id="article-nav-newer" class="article-nav-link-wrap newer">
-      <strong class="article-nav-caption">Nuevo</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
           Two-Sum
@@ -308,7 +338,7 @@
   
   
     <a href="/2016/10/02/Runnable-And-Thread/" id="article-nav-older" class="article-nav-link-wrap older">
-      <strong class="article-nav-caption">Viejo</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">Runnable And Thread</div>
     </a>
   
