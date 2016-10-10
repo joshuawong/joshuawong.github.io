@@ -16,7 +16,7 @@
    a. abstract: include data abstract and behavior abstract. Abstract only cares about object has what kinds of attributes and function, does not concern about details.
    b. encaps">
 <meta property="og:image" content="http://img.blog.csdn.net/20150408002007838">
-<meta property="og:updated_time" content="2016-10-09T23:28:06.000Z">
+<meta property="og:updated_time" content="2016-10-10T18:52:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java-Question-Question">
 <meta name="twitter:description" content="(1) 面向对象的特征有哪些方面？ 
@@ -49,7 +49,7 @@
   </nav>
   <nav id="sub-nav">
     
-      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
     
   </nav>
 </header>
@@ -297,6 +297,30 @@
 <p>(56) <strong>如何用Java代码列出一个目录下所有的文件？</strong> </p>
 <p><em>File</em> objects have a method <strong>listFiles()</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        File f = <span class="keyword">new</span> File(<span class="string">"/Users/Hao/Downloads"</span>);</div><div class="line">        <span class="keyword">for</span>(File temp : f.listFiles()) &#123;</div><div class="line">            <span class="keyword">if</span>(temp.isFile()) &#123;</div><div class="line">                System.out.println(temp.getName());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>(57) <strong>简述正则表达式及其用途。</strong> </p>
+<p>When handling string, sometimes we have to find some string with complex rules. Regular expression is used for describing these complex rule.</p>
+<p>(58) <strong>Java中是如何支持正则表达式操作的？</strong> </p>
+<ol>
+<li><p>In String class, there are some methods to supprot regular expressions: matches(), replaceAll(), replaceFirst(), split().</p>
+</li>
+<li><p>In Pattern class, there are lots of APIs can handle regular expressions.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.regex.Matcher;</div><div class="line"><span class="keyword">import</span> java.util.regex.Pattern;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RegExpTest</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String str = <span class="string">"NewYork(Brooklyn)(Queens)(Bronx)"</span>;</div><div class="line">        Pattern p = Pattern.compile(<span class="string">".*?(?=\\()"</span>);</div><div class="line">        Matcher m = p.matcher(str);</div><div class="line">        <span class="keyword">if</span>(m.find()) &#123;</div><div class="line">            System.out.println(m.group());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>(59) <strong>获得一个类的类对象有哪些方式？</strong> </p>
+<ol>
+<li><p>Type.class.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String.class</div></pre></td></tr></table></figure>
+</li>
+<li><p>Object.getClass().</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"hello"</span>.getClass()</div></pre></td></tr></table></figure>
+</li>
+<li><p>Class.forName().</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class.forName(<span class="string">"java.lang.String"</span>)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>(60) <strong>简述一下你了解的设计模式。</strong> </p>
+<p>(61) </p>
 
       
     </div>
@@ -312,7 +336,7 @@
         
         
           <li>
-            <span class="label">Mot-clé:</span>
+            <span class="label">Tag:</span>
             
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
@@ -328,7 +352,7 @@
 <nav id="article-nav" class="article-nav">
   
     <a href="/2016/10/08/Two-Sum/" id="article-nav-newer" class="article-nav-link-wrap newer">
-      <strong class="article-nav-caption">Récent</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           Two-Sum
@@ -338,7 +362,7 @@
   
   
     <a href="/2016/10/02/Runnable-And-Thread/" id="article-nav-older" class="article-nav-link-wrap older">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Runnable And Thread</div>
     </a>
   
