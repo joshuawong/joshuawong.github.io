@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-10T19:39:13.000Z</updated>
+  <updated>2016-10-17T17:46:43.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>unique-paths</title>
+    <link href="http://yoursite.com/2016/10/17/unique-paths/"/>
+    <id>http://yoursite.com/2016/10/17/unique-paths/</id>
+    <published>2016-10-17T17:38:29.000Z</published>
+    <updated>2016-10-17T17:46:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="62-Unique-Paths"><a href="#62-Unique-Paths" class="headerlink" title="62 Unique Paths"></a><a href="https://leetcode.com/problems/unique-paths/" target="_blank" rel="external">62 Unique Paths</a></h3><p>Solution 1: </p>
+<p>DP:</p>
+<p>Time: O(m<em>n);    Space: O(m</em>n) can be down-demension to O(m).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</div><div class="line">            dp[i][<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</div><div class="line">            dp[<span class="number">0</span>][i] = <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++)&#123;</div><div class="line">                dp[i][j] = dp[i-<span class="number">1</span>][j] + dp[i][j-<span class="number">1</span>];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Solution 2:</p>
+<p>Math:</p>
+<p>Time: O(min(m-1,n-1));      Space: O(1)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="comment">// For m*n grid, robot has to move exactly m-1 steps down and n-1 steps right and these can be done in any order.</span></div><div class="line">        m = m-<span class="number">1</span>;</div><div class="line">        n = n-<span class="number">1</span>;</div><div class="line">        <span class="comment">// make m the bigger one</span></div><div class="line">        <span class="keyword">if</span>(m &lt; n)&#123;</div><div class="line">            m = m ^ n;</div><div class="line">            n = m ^ n;</div><div class="line">            m = m ^ n;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">long</span> res = <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> j = <span class="number">1</span>;</div><div class="line">        <span class="comment">// Formula: (m+n)! / (m! * n!)</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = m+<span class="number">1</span>; i &lt;= m+n; i++)&#123; </div><div class="line">            res *= i;</div><div class="line">            res /= j;</div><div class="line">            j++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>A more effective implement of Math solution:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">     <span class="keyword">long</span> result = <span class="number">1</span>;</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;Math.min(m-<span class="number">1</span>,n-<span class="number">1</span>);i++)</div><div class="line">         result = result*(m+n-<span class="number">2</span>-i)/(i+<span class="number">1</span>); </div><div class="line">     <span class="keyword">return</span> (<span class="keyword">int</span>)result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;62-Unique-Paths&quot;&gt;&lt;a href=&quot;#62-Unique-Paths&quot; class=&quot;headerlink&quot; title=&quot;62 Unique Paths&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode.com/problems/un
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>combination-sum</title>
