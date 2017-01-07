@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <title>rservoir_sampling | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Reservoir sampling is a family of randomized algorithms for randomly choosing k samples from a list of n items,where n is either a very large or unknown number. Typically n is large enough that the li">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rservoir_sampling">
+<meta property="og:url" content="http://yoursite.com/2017/01/06/rservoir-sampling/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Reservoir sampling is a family of randomized algorithms for randomly choosing k samples from a list of n items,where n is either a very large or unknown number. Typically n is large enough that the li">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/dea233301b9ca8fe5dde94824f918c0ceaf7fd5f">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/02bfb4607c2295c0632953280f9a7730837730e3">
+<meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/5b1f02ced2e65bbb882f536b85b6315d76e406fa">
+<meta property="og:updated_time" content="2017-01-07T18:06:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rservoir_sampling">
+<meta name="twitter:description" content="Reservoir sampling is a family of randomized algorithms for randomly choosing k samples from a list of n items,where n is either a very large or unknown number. Typically n is large enough that the li">
+<meta name="twitter:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/dea233301b9ca8fe5dde94824f918c0ceaf7fd5f">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/typing.css">
+</head>
+
+  
+    <body>
+  
+      <div id="container" class="container">
+        <article id="post-rservoir-sampling" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+  <nav id="main-nav" class="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rservoir_sampling
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <p><a href="http://en.wikipedia.org/wiki/Reservoir_sampling" target="_blank" rel="external">Reservoir sampling</a> is a family of randomized algorithms for randomly choosing <em>k </em>samples from a list of <em>n</em> items,where <em>n</em> is either a very large or unknown number. Typically <em>n </em>is large enough that the list doesn’t fit into main memory. For example, a list of search queries in Google and Facebook.</p>
+<h2 id="Example-sample-size-1"><a href="#Example-sample-size-1" class="headerlink" title="Example: sample size 1"></a>Example: sample size 1</h2><p>Suppose we see a sequence of items, one at a time. We want to keep a single item in memory, and we want it to be selected at random from the sequence. If we know the total number of items (<em>n</em>), then the solution is easy: select an index <em>i</em> between 1 and <em>n</em> with equal probability, and keep the <em>i</em>-th element. The problem is that we do not always know <em>n</em> in advance. A possible solution is the following:</p>
+<ul>
+<li>Keep the first item in memory.</li>
+<li>When the i-th item arrives (for <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/dea233301b9ca8fe5dde94824f918c0ceaf7fd5f" alt="i&gt;1">):with probability <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/02bfb4607c2295c0632953280f9a7730837730e3" alt="1/i">, keep the new item (discard the old one)with probability <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5b1f02ced2e65bbb882f536b85b6315d76e406fa" alt="{\displaystyle 1-1/i}">, keep the old item (ignore the new one)</li>
+</ul>
+<p>So:</p>
+<ul>
+<li>when there is only one item, it is kept with probability 1;</li>
+<li>when there are 2 items, each of them is kept with probability 1/2;</li>
+<li>when there are 3 items, the third item is kept with probability 1/3, and each of the previous 2 items is also kept with probability (1/2)(1-1/3) = (1/2)(2/3) = 1/3;</li>
+<li>by induction, it is easy to prove that when there are <em>n</em> items, each item is kept with probability 1/<em>n</em>.</li>
+</ul>
+<h1 id="Leetcode-Problem"><a href="#Leetcode-Problem" class="headerlink" title="Leetcode Problem"></a>Leetcode Problem</h1><h3 id="382-Linked-List-Random-Node"><a href="#382-Linked-List-Random-Node" class="headerlink" title="382 Linked List Random Node"></a><a href="https://leetcode.com/problems/linked-list-random-node/" target="_blank" rel="external">382 Linked List Random Node</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> ListNode head;</div><div class="line">    <span class="keyword">private</span> Random random;</div><div class="line"></div><div class="line">    <span class="comment">/** <span class="doctag">@param</span> head The linked list's head.</span></div><div class="line">        Note that the head is guaranteed to be not null, so it contains at least one node. */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Solution</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.head = head;</div><div class="line">        random = <span class="keyword">new</span> Random();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Returns a random node's value. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRandom</span><span class="params">()</span> </span>&#123;</div><div class="line">        ListNode res = head;</div><div class="line">        ListNode cur = head;</div><div class="line">        <span class="keyword">int</span> size = <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span>(cur != <span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">if</span>(random.nextInt(size) == <span class="number">0</span>)&#123;</div><div class="line">                res = cur; <span class="comment">// not replace the first node &amp; the possibility is 1 / size</span></div><div class="line">            &#125;</div><div class="line">            size++;</div><div class="line">            cur = cur.next;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res.val;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Your Solution object will be instantiated and called as such:</div><div class="line"> * Solution obj = new Solution(head);</div><div class="line"> * int param_1 = obj.getRandom();</div><div class="line"> */</div></pre></td></tr></table></figure>
+<h3 id="398-Random-Pick-Index"><a href="#398-Random-Pick-Index" class="headerlink" title="398 Random Pick Index"></a><a href="https://leetcode.com/problems/random-pick-index/" target="_blank" rel="external">398 Random Pick Index</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] nums;</div><div class="line">    <span class="keyword">private</span> Random random;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Solution</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.nums = nums;</div><div class="line">        random = <span class="keyword">new</span> Random();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pick</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> res = -<span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> size = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] == target)&#123;</div><div class="line">                <span class="keyword">if</span>(random.nextInt(size) == <span class="number">0</span>)&#123; </div><div class="line">                  <span class="comment">// not replace the first node, possiblity is 1/size</span></div><div class="line">                    res = i;</div><div class="line">                &#125;</div><div class="line">                size++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Your Solution object will be instantiated and called as such:</div><div class="line"> * Solution obj = new Solution(nums);</div><div class="line"> * int param_1 = obj.pick(target);</div><div class="line"> */</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2017/01/06/rservoir-sampling/" class="article-date">
+  <time datetime="2017-01-06T19:26:25.000Z" itemprop="datePublished">2017-01-06</time>
+</a>
+
+        </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm-Leetcode/">Algorithm, Leetcode</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <span id="article-nav-newer" class="article-nav-link-wrap newer"></span>
+  
+  
+    <a href="/2016/11/03/bit-arithmetic/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">bit-arithmetic.md</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Fusce eget urna vitae velit <em>eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque</em> penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Post</p>
+
+
+      </div>
+    </footer>
+
+      
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div>
+  </body>
+</html>
